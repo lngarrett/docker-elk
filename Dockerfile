@@ -24,4 +24,5 @@ WORKDIR /etc/init.d
 RUN wget https://gist.githubusercontent.com/thisismitch/8b15ac909aed214ad04a/raw/bce61d85643c2dcdfbc2728c55a41dab444dca20/kibana4
 RUN chmod +x /etc/init.d/kibana4
 RUN update-rc.d kibana4 defaults 96 9
-RUN service kibana4 start
+RUN service kibana4 stop
+CMD["/opt/kibana/bin/kibana"]
