@@ -25,4 +25,4 @@ RUN wget https://gist.githubusercontent.com/thisismitch/8b15ac909aed214ad04a/raw
 RUN chmod +x /etc/init.d/kibana4
 RUN update-rc.d kibana4 defaults 96 9
 RUN service kibana4 stop
-CMD["/opt/kibana/bin/kibana"]
+CMD ["kibana4","-DFOREGROUND"]
