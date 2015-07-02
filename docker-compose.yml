@@ -1,0 +1,25 @@
+elasticsearch:
+  build       : ./elasticsearch/
+  restart     : always
+  volumes:
+   - ~/warehouse/elasticsearch/data/:/usr/share/elasticsearch/data
+  ports       :
+   - 9200:9200
+logstash:
+  image  : logstash
+  restart: always
+  ports  :
+   - 5500:5500
+  volumes:
+   - ~/warehouse/logstash/config/:/opt/logstash/conf.d/
+   - ~/warehouse/logstash/ssl/:/etc/pki/tls/
+  links  :
+   - elasticsearch
+  command: logstash -f /opt/logstash/conf.d
+kibana:
+  build  : ./kibana/
+  restart: always
+  ports  :
+   - 8400:80
+  links  :
+   - elasticsearch
