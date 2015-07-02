@@ -13,6 +13,7 @@ logstash:
   volumes:
    - ~/warehouse/logstash/config/:/opt/logstash/conf.d/
    - ~/warehouse/logstash/ssl/:/etc/pki/tls/
+   - /var/log/pier
   links  :
    - elasticsearch
   command: logstash -f /opt/logstash/conf.d
