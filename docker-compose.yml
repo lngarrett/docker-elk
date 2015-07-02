@@ -11,7 +11,7 @@ logstash:
   ports  :
    - 5500:5500
   volumes:
-   - ~/warehouse/logstash/config/:/opt/logstash/conf.d/
+   - logstash/config/:/opt/logstash/conf.d/
    - ~/warehouse/logstash/ssl/:/etc/pki/tls/
    - /var/log/pier
   links  :
